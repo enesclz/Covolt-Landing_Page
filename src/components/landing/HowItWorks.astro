@@ -1,0 +1,156 @@
+<section class="bg-white pt-20 text-base-900">
+  <div class="max-w-7xl mx-auto px-8 md:px-12 lg:px-24">
+    <div class="text-center mb-16">
+      <div class="mb-6">
+        <div class="flex justify-center items-center space-x-8">
+          <span class="step-text text-xl font-bold text-accent-600 tracking-wide relative overflow-hidden cursor-pointer" data-step="1">
+            <span class="step-content inline-block relative z-10 transition-all duration-1000 ease-out" style="opacity: 0; transform: translateY(50px) rotateX(90deg);">
+              <span class="text-shadow-lg">Bağla</span>
+            </span>
+          </span>
+          
+          <span class="step-text text-xl font-bold text-accent-600 tracking-wide relative overflow-hidden cursor-pointer" data-step="2">
+            <span class="step-content inline-block relative z-10 transition-all duration-1000 ease-out" style="opacity: 0; transform: translateY(50px) rotateX(90deg);">
+              <span class="text-shadow-lg">Takip Et</span>
+            </span>
+          </span>
+          
+          <span class="step-text text-xl font-bold text-accent-600 tracking-wide relative overflow-hidden cursor-pointer" data-step="3">
+            <span class="step-content inline-block relative z-10 transition-all duration-1000 ease-out" style="opacity: 0; transform: translateY(50px) rotateX(90deg);">
+              <span class="text-shadow-lg">Tasarruf Et</span>
+            </span>
+          </span>
+        </div>
+      </div>
+      <h2
+        class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-semibold text-accent-600 tracking-tight mb-6">
+        Nasıl Çalışır?
+      </h2>
+      <p class="text-xl/relaxed text-gray-700 font-medium max-w-3xl mx-auto">
+        Covolt'u kullanmaya başlamak için basit 3 adım.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+      <div class="scroll-card group bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-[#191265] hover:border-[#191265] hover:bg-white/90 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-xl hover:shadow-gray-200/20 text-center" data-delay="0">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-accent-600/10 rounded-2xl mb-6 group-hover:bg-accent-600/15 transition-colors duration-300 border border-[#191265]">
+          <span class="text-2xl font-bold text-accent-600">1</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4 tracking-tight">
+          Sayaçlarını Bağla
+        </h3>
+        <p class="text-gray-700 leading-relaxed text-base font-medium">
+          OSOS altyapını veya sayaçlarını Covolt'a tanımla. Tüm tesislerin tek ekranda görünür olsun.
+        </p>
+      </div>
+
+      <div class="scroll-card group bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-[#191265] hover:border-[#191265] hover:bg-white/90 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-xl hover:shadow-gray-200/20 text-center" data-delay="200">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-accent-600/10 rounded-2xl mb-6 group-hover:bg-accent-600/15 transition-colors duration-300 border border-[#191265]">
+          <span class="text-2xl font-bold text-accent-600">2</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4 tracking-tight">
+          Takip Et & Analiz Yap
+        </h3>
+        <p class="text-gray-700 leading-relaxed text-base font-medium">
+          Tüketim verilerini anlık izle. Faturalarını doğrula, tüketim trendlerini gör, ceza risklerini önceden fark et.
+        </p>
+      </div>
+
+      <div class="scroll-card group bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-[#191265] hover:border-[#191265] hover:bg-white/90 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-xl hover:shadow-gray-200/20 text-center md:col-span-2 lg:col-span-1" data-delay="400">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-accent-600/10 rounded-2xl mb-6 group-hover:bg-accent-600/15 transition-colors duration-300 border border-[#191265]">
+          <span class="text-2xl font-bold text-accent-600">3</span>
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900 mb-4 tracking-tight">
+          Optimize Et & Tasarruf Sağla
+        </h3>
+        <p class="text-gray-700 leading-relaxed text-base font-medium">
+          Uyarılara göre aksiyon al, doğru tarifeyi seç, gereksiz maliyetleri önle. Enerjini daha verimli kullanarak tasarruf et.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<script>
+  // Epic step text animation with 3D effects
+  function animateStepText() {
+    const stepTexts = document.querySelectorAll('.step-text');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const stepNumber = parseInt(entry.target.getAttribute('data-step'));
+          const stepContent = entry.target.querySelector('.step-content');
+          
+          // Calculate delay based on step number
+          const delay = (stepNumber - 1) * 400;
+          
+          setTimeout(() => {
+            // Epic 3D entrance animation
+            stepContent.style.transform = 'translateY(0) rotateX(0deg)';
+            stepContent.style.opacity = '1';
+            
+            // Epic hover effects
+            entry.target.addEventListener('mouseenter', () => {
+              stepContent.style.transform = 'translateY(-5px) rotateX(-5deg) scale(1.05)';
+              stepContent.style.textShadow = '0 8px 16px rgba(59, 130, 246, 0.4)';
+            });
+            
+            entry.target.addEventListener('mouseleave', () => {
+              stepContent.style.transform = 'translateY(0) rotateX(0deg) scale(1)';
+              stepContent.style.textShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+            });
+            
+          }, delay);
+        }
+      });
+    }, {
+      threshold: 0.2,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    stepTexts.forEach((text) => {
+      observer.observe(text);
+    });
+  }
+  
+  // Scroll card animation
+  function animateScrollCards() {
+    const scrollCards = document.querySelectorAll('.scroll-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const delay = parseInt(entry.target.getAttribute('data-delay')) || 0;
+          
+          setTimeout(() => {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, delay);
+        }
+      });
+    }, {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    });
+    
+    scrollCards.forEach((card) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(30px)';
+      card.style.transition = 'all 0.6s ease-out';
+      observer.observe(card);
+    });
+  }
+  
+  // Initialize animations when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    animateStepText();
+    animateScrollCards();
+  });
+</script>

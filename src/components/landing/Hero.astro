@@ -1,0 +1,139 @@
+---
+import OptimizedImage from "../../layouts/utilities/OptimizedImage.astro";
+import backgroundImage from "../../assets/images/ColorOS 12  _ OPPO Global.jpeg.jpg";
+
+const featuresList = [
+  {
+    title: "OSOS Entegrasyonu",
+    description: "Türkiye'deki tüm 21 EDAŞ altyapısından anlık veri toplama.",
+  },
+  {
+    title: "Fatura Doğrulama",
+    description: "Elektrik faturalarınızı doğrulayarak gereksiz ödemeleri engelleyin.",
+  },
+  {
+    title: "Uyarı Sistemi",
+    description: "Reaktif ceza ve maksimum talep aşımından önce akıllı uyarılar.",
+  },
+];
+
+const scrollingFeatures = [
+  "OSOS Entegrasyonu",
+  "Fatura Doğrulama", 
+  "Reaktif Ceza Önleme",
+  "Maksimum Talep Kontrolü",
+  "Çok Tesis Yönetimi",
+  "Tarife Karşılaştırması",
+  "Anlık İzleme"
+];
+---
+
+<section class="hero-section overflow-hidden relative" style="background: linear-gradient(135deg, rgba(25, 18, 101, 0.08) 0%, rgba(20, 15, 79, 0.12) 30%, rgba(13, 10, 50, 0.15) 70%, rgba(25, 18, 101, 0.08) 100%);">
+  <!-- Arka Plan Görsel -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="hero-sliding-bg" style={`background-image: url(${backgroundImage});`}></div>
+    <!-- Ek efektli overlay -->
+    <div class="hero-effects-overlay"></div>
+    
+    <!-- V + Lightning Effect -->
+    <div class="lightning-container absolute inset-0">
+      <!-- Ana V+Lightning -->
+      <div class="lightning-main">
+        <svg class="lightning-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- V harfi sol kolu -->
+          <path d="M20 100 L60 20 L65 20 L25 100 Z" fill="rgba(40, 60, 255, 0.15)" class="v-left-arm"/>
+          <!-- V harfi sağ kolu + şimşek -->
+          <path d="M55 20 L95 100 L100 100 L60 20 L55 20 Z" fill="rgba(82, 99, 255, 0.12)" class="v-right-arm"/>
+          <!-- Şimşek detayı -->
+          <path d="M75 20 L95 20 L85 40 L95 40 L80 60 L90 60 L75 80 L85 80 L70 100" 
+                fill="rgba(128, 140, 255, 0.08)" 
+                stroke="rgba(40, 60, 255, 0.2)" 
+                stroke-width="1" 
+                class="lightning-bolt"/>
+        </svg>
+      </div>
+      
+      <!-- Sol V+Lightning -->
+      <div class="lightning-left">
+        <svg class="lightning-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 100 L60 20 L65 20 L25 100 Z" fill="rgba(40, 60, 255, 0.12)" class="v-left-arm"/>
+          <path d="M55 20 L95 100 L100 100 L60 20 L55 20 Z" fill="rgba(82, 99, 255, 0.10)" class="v-right-arm"/>
+          <path d="M75 20 L95 20 L85 40 L95 40 L80 60 L90 60 L75 80 L85 80 L70 100" 
+                fill="rgba(128, 140, 255, 0.06)" 
+                stroke="rgba(40, 60, 255, 0.15)" 
+                stroke-width="1" 
+                class="lightning-bolt"/>
+        </svg>
+      </div>
+      
+      <!-- Sağ V+Lightning -->
+      <div class="lightning-right">
+        <svg class="lightning-svg" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 100 L60 20 L65 20 L25 100 Z" fill="rgba(40, 60, 255, 0.13)" class="v-left-arm"/>
+          <path d="M55 20 L95 100 L100 100 L60 20 L55 20 Z" fill="rgba(82, 99, 255, 0.11)" class="v-right-arm"/>
+          <path d="M75 20 L95 20 L85 40 L95 40 L80 60 L90 60 L75 80 L85 80 L70 100" 
+                fill="rgba(128, 140, 255, 0.07)" 
+                stroke="rgba(40, 60, 255, 0.18)" 
+                stroke-width="1" 
+                class="lightning-bolt"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <div class="px-8 pt-32 mx-auto md:px-12 lg:px-24 max-w-7xl relative" style="z-index: 10;">
+    <div class="max-w-4xl text-center mx-auto lg:text-balance mb-10">
+             <div class="inline-flex items-center px-8 py-4 rounded-2xl bg-white/80 backdrop-blur-2xl border border-white/60 mb-8">
+         <span class="text-sm font-bold text-accent-700 tracking-wide uppercase">
+           Enerji Yönetimi Platformu
+         </span>
+       </div>
+             <h1
+         class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight lg:text-7xl/tight font-bold text-gray-900 tracking-tight drop-shadow-lg">
+         Elektriğinizi Sadece<br class="hidden sm:block">
+         Tüketmeyin, 
+         <span class="bg-gradient-to-r from-accent-600 to-accent-500 bg-clip-text text-transparent font-bold drop-shadow-lg">Yönetin</span>
+       </h1>
+             <p class="text-xl/relaxed sm:text-[22px]/relaxed mt-8 text-gray-800 font-medium max-w-3xl mx-auto drop-shadow-md">
+         Covolt ile işletmenizin elektrik tüketimini kontrol altına alın. 
+         <span class="font-bold text-gray-900 drop-shadow-sm">%10-15 tasarruf sağlayın</span>, ceza risklerini önleyin ve sürdürülebilirlik hedeflerinize ulaşın.
+       </p>
+      <div class="flex justify-center mt-12">
+        <a
+          href="#features"
+          class="group inline-flex items-center justify-center px-10 py-5 text-[17px] font-semibold text-white bg-gradient-to-r from-accent-600 to-accent-500 hover:from-accent-700 hover:to-accent-600 rounded-3xl transition-all duration-500 ease-out hover:scale-110 hover:shadow-2xl hover:shadow-accent-600/30 focus:outline-none focus:ring-4 focus:ring-accent-600/30 relative overflow-hidden">
+          <span class="relative z-10">Özellikleri Keşfedin</span>
+          <svg class="ml-3 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+          <div class="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 ease-out"></div>
+        </a>
+      </div>
+    </div>
+
+    
+    <div
+      class="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-4 max-w-5xl mt-16 mx-auto">
+      {
+        featuresList.map(({ title, description }, index) => (
+          <div class="scroll-card group bg-white/80 backdrop-blur-2xl rounded-3xl p-8 border border-[#191265] hover:border-accent-300/50 hover:bg-white/95 hover:shadow-xl hover:shadow-accent-600/20 transition-all duration-500 ease-out hover:scale-[1.02] hover:-translate-y-3" data-delay={index * 200}>
+            <h3 class="text-xl font-semibold text-gray-900 mb-4 tracking-tight">{title}</h3>
+            <p class="text-gray-600 leading-relaxed text-[15px] font-normal">{description}</p>
+          </div>
+        ))
+      }
+    </div>
+    
+    <!-- Apple-Style Kaydırılan Özellikler -->
+    <div class="relative w-full mx-auto mt-20 mb-16">
+      <div class="overflow-hidden">
+        <div class="scrolling-wrapper flex whitespace-nowrap animate-scroll">
+          {scrollingFeatures.concat(scrollingFeatures).map((feature, index) => (
+                         <div key={index} class="inline-flex items-center mx-6 text-base font-medium text-gray-700 bg-white/80 backdrop-blur-2xl px-6 py-3 rounded-2xl border border-[#191265] hover:bg-white/95 hover:border-accent-300/50 hover:shadow-xl hover:shadow-accent-600/20 transition-all duration-500 ease-out">
+              {feature}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

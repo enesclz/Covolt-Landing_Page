@@ -1,0 +1,340 @@
+---
+import "../styles/global.css";
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- Basic Meta Tags -->
+<title>Covolt - Enerji Yönetimi Platformu | Elektrik Tüketiminizi Yönetin</title>
+<meta
+  name="description"
+  content="Covolt ile işletmenizin elektrik tüketimini kontrol altına alın. %10-15 tasarruf sağlayın, ceza risklerini önleyin. OSOS entegrasyonu, fatura doğrulama ve akıllı uyarı sistemi."
+/>
+<meta name="keywords" content="enerji yönetimi, OSOS, elektrik faturası, enerji tasarrufu, reaktif ceza önleme, enerji izleme, çok tesis yönetimi, Türkiye enerji, Premium Enerji" />
+<meta name="author" content="Covolt" />
+
+<!-- Favicons -->
+<link rel="icon" href="/favicon.ico?v=5" sizes="any" />
+<link rel="icon" type="image/png" sizes="512x512" href="/favicon-96x96.png?v=5" />
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-96x96.png?v=5" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-96x96.png?v=5" />
+<link rel="icon" type="image/png" sizes="128x128" href="/favicon-96x96.png?v=5" />
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png?v=5" />
+<link rel="icon" type="image/png" sizes="64x64" href="/favicon-96x96.png?v=5" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=5" />
+
+<!-- Favicon for IE -->
+<link rel="shortcut icon" href="/favicon.ico?v=3" type="image/x-icon" />
+
+<!-- Force browser to reload favicon -->
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate, max-age=0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="Thu, 01 Jan 1970 00:00:00 GMT" />
+<meta http-equiv="Last-Modified" content="Thu, 01 Jan 1970 00:00:00 GMT" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:image" content="/og-image.png" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://covolt.com/" />
+<meta property="og:title" content="Covolt - Enerji Yönetimi Platformu" />
+<meta
+  property="og:description"
+  content="İşletmenizin elektrik tüketimini kontrol altına alın. %10-15 tasarruf sağlayın, ceza risklerini önleyin."
+/>
+<meta
+  property="og:image"
+  content="https://covolt.com/og-image.png"
+/>
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://covolt.com/" />
+<meta property="twitter:title" content="Covolt - Enerji Yönetimi Platformu" />
+<meta
+  property="twitter:description"
+  content="İşletmenizin elektrik tüketimini kontrol altına alın. %10-15 tasarruf sağlayın, ceza risklerini önleyin."
+/>
+<meta
+  property="twitter:image"
+  content="https://covolt.com/og-image.png"
+/>
+
+<!-- Canonical URL -->
+<link rel="canonical" href="https://covolt.com/" />
+
+<!-- Additional SEO -->
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- Apple Touch Icon (already included in favicons, but keeping for backwards compatibility) -->
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!-- Theme Color for Mobile Browsers -->
+<meta name="theme-color" content="#0065ff" />
+
+<!---- Alpine  -->
+<script is:inline defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js">
+</script>
+
+<script>
+  // Global scroll animation utility
+  class ScrollAnimations {
+    constructor() {
+      this.observers = new Map();
+      this.animationStates = new Map();
+      this.lastScrollY = 0;
+      this.scrollDirection = 'down';
+      this.init();
+    }
+
+    init() {
+      // Initialize when DOM is ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => this.setupAnimations());
+      } else {
+        this.setupAnimations();
+      }
+    }
+
+    setupAnimations() {
+      this.animateCards();
+      this.animateSections();
+      this.setupScrollListener();
+      this.setupResizeListener();
+    }
+
+    setupScrollListener() {
+      let ticking = false;
+      
+      const handleScroll = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            this.updateScrollDirection();
+            this.updateCardAnimations();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('scroll', handleScroll, { passive: true });
+    }
+
+    setupResizeListener() {
+      let ticking = false;
+      
+      const handleResize = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            this.updateCardAnimations();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('resize', handleResize, { passive: true });
+    }
+
+    updateScrollDirection() {
+      const currentScrollY = window.scrollY;
+      this.scrollDirection = currentScrollY > this.lastScrollY ? 'down' : 'up';
+      this.lastScrollY = currentScrollY;
+    }
+
+    updateCardAnimations() {
+      const cards = document.querySelectorAll('.scroll-card');
+      const windowHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+      const viewportCenter = windowHeight / 2;
+
+      cards.forEach(card => {
+        const rect = card.getBoundingClientRect();
+        const cardCenter = rect.top + rect.height / 2;
+        const distanceFromCenter = Math.abs(cardCenter - viewportCenter);
+        const maxDistance = windowHeight * 0.8;
+        
+        // Calculate visibility and trigger animation based on scroll direction
+        const isInViewport = rect.top < windowHeight * 0.9 && rect.bottom > windowHeight * 0.1;
+        const isNearCenter = distanceFromCenter < maxDistance;
+        
+        if (isInViewport && isNearCenter) {
+          this.animateCard(card);
+        } else if (this.scrollDirection === 'up' && rect.bottom < 0) {
+          // Reset animation when scrolling up and card is above viewport
+          this.resetCard(card);
+        } else if (this.scrollDirection === 'down' && rect.top > windowHeight) {
+          // Reset animation when scrolling down and card is below viewport
+          this.resetCard(card);
+        }
+      });
+    }
+
+    animateCard(card) {
+      const delay = parseInt(card.dataset.delay) || 0;
+      const currentState = this.animationStates.get(card);
+      
+      if (!currentState) {
+        setTimeout(() => {
+          card.classList.add('animate');
+          card.setAttribute('data-animation-state', 'visible');
+          this.animationStates.set(card, true);
+        }, delay);
+      }
+    }
+
+    resetCard(card) {
+      card.classList.remove('animate');
+      card.setAttribute('data-animation-state', 'entering');
+      this.animationStates.set(card, false);
+    }
+
+    animateCards() {
+      const cards = document.querySelectorAll('.scroll-card');
+      if (cards.length === 0) return;
+
+      const observerOptions = {
+        threshold: [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1],
+        rootMargin: '0px 0px -10% 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const card = entry.target;
+          
+          if (entry.isIntersecting && entry.intersectionRatio > 0.1) {
+            this.animateCard(card);
+          } else if (!entry.isIntersecting && entry.intersectionRatio === 0) {
+            this.resetCard(card);
+          }
+        });
+      }, observerOptions);
+
+      cards.forEach(card => {
+        observer.observe(card);
+        // Initialize animation state
+        card.setAttribute('data-animation-state', 'entering');
+        this.animationStates.set(card, false);
+      });
+
+      this.observers.set('cards', observer);
+    }
+
+    animateSections() {
+      const sections = document.querySelectorAll('section');
+      if (sections.length === 0) return;
+
+      const observerOptions = {
+        threshold: [0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1],
+        rootMargin: '0px 0px -20% 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const section = entry.target;
+          
+          if (entry.isIntersecting && entry.intersectionRatio > 0.05) {
+            section.classList.add('section-visible');
+            
+            // Trigger card animations within this section
+            const cards = section.querySelectorAll('.scroll-card:not(.animate)');
+            cards.forEach((card, index) => {
+              const delay = parseInt(card.dataset.delay) || (index * 50);
+              setTimeout(() => {
+                this.animateCard(card);
+              }, delay);
+            });
+          } else if (!entry.isIntersecting && entry.intersectionRatio === 0) {
+            section.classList.remove('section-visible');
+          }
+        });
+      }, observerOptions);
+
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      this.observers.set('sections', observer);
+    }
+
+    // Method to manually trigger animations (useful for dynamic content)
+    triggerAnimations(container = document) {
+      const cards = container.querySelectorAll('.scroll-card:not(.animate)');
+      cards.forEach((card, index) => {
+        const delay = parseInt(card.dataset.delay) || (index * 50);
+        setTimeout(() => {
+          this.animateCard(card);
+        }, delay);
+      });
+    }
+
+    // Cleanup method
+    destroy() {
+      this.observers.forEach(observer => {
+        observer.disconnect();
+      });
+      this.observers.clear();
+      this.animationStates.clear();
+    }
+  }
+
+  // Initialize global scroll animations
+  window.scrollAnimations = new ScrollAnimations();
+
+  // Expose utility for manual triggering
+  window.triggerScrollAnimations = (container) => {
+    if (window.scrollAnimations) {
+      window.scrollAnimations.triggerAnimations(container);
+    }
+  };
+
+  // Handle dynamic content loading (for SPA-like behavior)
+  document.addEventListener('astro:page-load', () => {
+    if (window.scrollAnimations) {
+      window.scrollAnimations.destroy();
+      window.scrollAnimations = new ScrollAnimations();
+    }
+  });
+</script>
+
+<style>
+  /* Additional global animation styles */
+  section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  section.section-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Ensure smooth animations */
+  * {
+    box-sizing: border-box;
+  }
+
+  /* Performance optimizations */
+  .scroll-card,
+  section {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-card,
+    section {
+      transition: none !important;
+      transform: none !important;
+      opacity: 1 !important;
+    }
+    
+    .scroll-card.animate,
+    section.section-visible {
+      transform: none !important;
+    }
+  }
+</style>

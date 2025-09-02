@@ -1,0 +1,713 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --color-black: #121212;
+  /* Accent  */
+  --color-accent-25: #f8f6ff;
+  --color-accent-50: #f1efff;
+  --color-accent-100: #e6e2ff;
+  --color-accent-200: #d0c7ff;
+  --color-accent-300: #b39dff;
+  --color-accent-400: #936aff;
+  --color-accent-500: #7c3aed;
+  --color-accent-600: #191265;
+  --color-accent-700: #140f4f;
+  --color-accent-800: #100c3e;
+  --color-accent-900: #0d0a32;
+  --color-accent-950: #080621;
+  /* Base */
+  --color-base-25: #fafafa;
+  --color-base-50: #f9fafb;
+  --color-base-100: #f3f4f6;
+  --color-base-200: #e5e7eb;
+  --color-base-300: #d1d5db;
+  --color-base-400: #9ca3af;
+  --color-base-500: #6b7280;
+  --color-base-600: #4b5563;
+  --color-base-700: #374151;
+  --color-base-800: #1f2937;
+  --color-base-900: #111827;
+  --color-base-950: #030712;
+}
+
+/* CSS */
+:root {
+  font-family: Inter, sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+
+  /* Use variable font if supported */
+  :root {
+    font-family: InterVariable, sans-serif;
+  }
+}
+
+
+/* Adds pointer cursor to buttons */
+button:not(:disabled),
+[role="button"]:not(:disabled) {
+  cursor: pointer;
+}
+
+/* Apple-Style Kaydırma Animasyonu */
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.scrolling-wrapper:hover .animate-scroll {
+  animation-play-state: paused;
+}
+
+/* Apple-Style Smooth Transitions */
+.scrolling-wrapper > div {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global scroll animation styles */
+.scroll-card {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.scroll-card.animate {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* FAQ specific animations */
+.faq-section .scroll-card {
+  transform: translateY(40px);
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.faq-section .scroll-card.animate {
+  transform: translateY(0);
+}
+
+.faq-section .scroll-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Hero section specific animations */
+.hero-section .scroll-card {
+  transform: translateY(80px) scale(0.9);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.hero-section .scroll-card.animate {
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered animation delays */
+.scroll-card[data-delay="0"] { transition-delay: 0ms; }
+.scroll-card[data-delay="100"] { transition-delay: 100ms; }
+.scroll-card[data-delay="200"] { transition-delay: 200ms; }
+.scroll-card[data-delay="300"] { transition-delay: 300ms; }
+.scroll-card[data-delay="400"] { transition-delay: 400ms; }
+.scroll-card[data-delay="500"] { transition-delay: 500ms; }
+.scroll-card[data-delay="600"] { transition-delay: 600ms; }
+.scroll-card[data-delay="700"] { transition-delay: 700ms; }
+
+/* Performance optimizations */
+.scroll-card {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-card {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .scroll-card.animate {
+    transform: none !important;
+  }
+  
+  .scroll-card:hover {
+    transform: none !important;
+  }
+}
+
+/* Smooth scrolling for better animation experience */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation performance improvements */
+* {
+  box-sizing: border-box;
+}
+
+/* Ensure animations work well on mobile */
+@media (max-width: 768px) {
+  .scroll-card {
+    transform: translateY(40px) scale(0.98);
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  
+  .scroll-card.animate {
+    transform: translateY(0) scale(1);
+  }
+  
+  .scroll-card:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+/* Enhanced sensitivity for scroll animations */
+.scroll-card {
+  /* More sensitive trigger points */
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Section animations */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+
+section.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation states for better control */
+.scroll-card[data-animation-state="entering"] {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+}
+
+.scroll-card[data-animation-state="visible"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.scroll-card[data-animation-state="exiting"] {
+  opacity: 0;
+  transform: translateY(-60px) scale(0.95);
+}
+
+/* Hero sliding background */
+.hero-sliding-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.3;
+  filter: brightness(0.9) contrast(1.4) saturate(1.2) hue-rotate(160deg) sepia(0.15) blur(0.5px);
+  transition: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation: background-breathe 8s ease-in-out infinite, background-shift 20s ease-in-out infinite;
+}
+
+@keyframes background-breathe {
+  0%, 100% {
+    opacity: 0.3;
+    filter: brightness(0.9) contrast(1.4) saturate(1.2) hue-rotate(160deg) sepia(0.15) blur(0.5px);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    filter: brightness(1.0) contrast(1.6) saturate(1.4) hue-rotate(170deg) sepia(0.2) blur(0.3px);
+    transform: scale(1.02);
+  }
+}
+
+@keyframes background-shift {
+  0%, 100% {
+    background-position: center center;
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    background-position: 20% 30%;
+    transform: scale(1.01) rotate(0.5deg);
+  }
+  50% {
+    background-position: 80% 70%;
+    transform: scale(1.02) rotate(0deg);
+  }
+  75% {
+    background-position: 60% 20%;
+    transform: scale(1.01) rotate(-0.5deg);
+  }
+}
+
+/* Gradient overlay for better text readability */
+.hero-sliding-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(0, 0, 0, 0.08) 25%,
+    rgba(0, 0, 0, 0.03) 50%,
+    rgba(0, 0, 0, 0.08) 75%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  pointer-events: none;
+  animation: overlay-pulse 12s ease-in-out infinite;
+}
+
+@keyframes overlay-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Enhanced floating animation with more visual impact */
+.hero-sliding-bg::after {
+  content: '';
+  position: absolute;
+  top: -15%;
+  left: -15%;
+  width: 130%;
+  height: 130%;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(25, 18, 101, 0.2) 0%,
+    transparent 60%
+  ),
+  radial-gradient(
+    circle at 70% 80%,
+    rgba(20, 15, 79, 0.15) 0%,
+    transparent 60%
+  ),
+  radial-gradient(
+    circle at 50% 50%,
+    rgba(25, 18, 101, 0.1) 0%,
+    transparent 70%
+  );
+  animation: float 15s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(20px, -20px) rotate(1deg);
+  }
+  66% {
+    transform: translate(-15px, 15px) rotate(-1deg);
+  }
+}
+
+/* Enhanced hover effects */
+.hero-section:hover .hero-sliding-bg {
+  opacity: 0.5;
+  filter: brightness(1.1) contrast(1.6) saturate(1.4) hue-rotate(170deg) sepia(0.25) blur(0.2px);
+  transform: scale(1.08) rotate(1deg);
+  animation-duration: 3s;
+}
+
+/* Parallax effect for hero section */
+.hero-section {
+  perspective: 1000px;
+}
+
+/* Ek efektli overlay */
+.hero-effects-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(124, 58, 237, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(25, 18, 101, 0.08) 0%, transparent 40%),
+    conic-gradient(from 45deg at 50% 50%, rgba(124, 58, 237, 0.05) 0deg, transparent 60deg, rgba(25, 18, 101, 0.05) 120deg, transparent 180deg, rgba(124, 58, 237, 0.05) 240deg, transparent 300deg, rgba(25, 18, 101, 0.05) 360deg);
+  animation: effects-rotate 25s linear infinite, effects-pulse 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes effects-rotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes effects-pulse {
+  0%, 100% {
+    opacity: 0.6;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    opacity: 0.8;
+    filter: hue-rotate(20deg);
+  }
+}
+
+.hero-sliding-bg {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Subtle pulse animation for accent elements */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(124, 58, 237, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(124, 58, 237, 0.2);
+  }
+}
+
+.hero-section .scroll-card:hover {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Additional background enhancement */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 20% 20%, rgba(25, 18, 101, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(20, 15, 79, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(13, 10, 50, 0.12) 0%, transparent 70%),
+    linear-gradient(135deg, rgba(25, 18, 101, 0.05) 0%, rgba(20, 15, 79, 0.08) 50%, rgba(13, 10, 50, 0.1) 100%);
+  pointer-events: none;
+  animation: center-glow 10s ease-in-out infinite, gradient-shift 15s ease-in-out infinite;
+}
+
+@keyframes center-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 0% 0%;
+  }
+  25% {
+    background-position: 20% 20%, 80% 80%, 30% 70%, 20% 20%;
+  }
+  50% {
+    background-position: 50% 50%, 50% 50%, 70% 30%, 50% 50%;
+  }
+  75% {
+    background-position: 80% 80%, 20% 20%, 80% 20%, 80% 80%;
+  }
+}
+
+/* Lightning Effect Styles */
+.lightning-container {
+  pointer-events: none;
+  z-index: 5;
+}
+
+.lightning-svg {
+  width: 150px;
+  height: 150px;
+  filter: drop-shadow(0 0 8px rgba(40, 60, 255, 0.3));
+  transition: all 0.3s ease;
+}
+
+/* Ana Lightning - Merkez */
+.lightning-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: lightning-main-pulse 4s ease-in-out infinite, lightning-main-float 8s ease-in-out infinite;
+}
+
+@keyframes lightning-main-pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+    filter: drop-shadow(0 0 8px rgba(40, 60, 255, 0.3));
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+    filter: drop-shadow(0 0 15px rgba(40, 60, 255, 0.5));
+  }
+}
+
+@keyframes lightning-main-float {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  25% {
+    transform: translate(-50%, -50%) rotate(2deg);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  75% {
+    transform: translate(-50%, -50%) rotate(-2deg);
+  }
+}
+
+/* Sol Lightning */
+.lightning-left {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  animation: lightning-left-pulse 5s ease-in-out infinite, lightning-left-float 10s ease-in-out infinite;
+}
+
+@keyframes lightning-left-pulse {
+  0%, 100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) rotate(-15deg) scale(0.8);
+    filter: drop-shadow(0 0 6px rgba(40, 60, 255, 0.2));
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) rotate(-15deg) scale(0.9);
+    filter: drop-shadow(0 0 12px rgba(40, 60, 255, 0.4));
+  }
+}
+
+@keyframes lightning-left-float {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(-15deg);
+  }
+  33% {
+    transform: translate(-50%, -50%) rotate(-12deg);
+  }
+  66% {
+    transform: translate(-50%, -50%) rotate(-18deg);
+  }
+}
+
+/* Sağ Lightning */
+.lightning-right {
+  position: absolute;
+  top: 70%;
+  right: 20%;
+  transform: translate(50%, -50%) rotate(15deg);
+  animation: lightning-right-pulse 6s ease-in-out infinite, lightning-right-float 12s ease-in-out infinite;
+}
+
+@keyframes lightning-right-pulse {
+  0%, 100% {
+    opacity: 0.25;
+    transform: translate(50%, -50%) rotate(15deg) scale(0.7);
+    filter: drop-shadow(0 0 5px rgba(40, 60, 255, 0.25));
+  }
+  50% {
+    opacity: 0.45;
+    transform: translate(50%, -50%) rotate(15deg) scale(0.8);
+    filter: drop-shadow(0 0 10px rgba(40, 60, 255, 0.45));
+  }
+}
+
+@keyframes lightning-right-float {
+  0%, 100% {
+    transform: translate(50%, -50%) rotate(15deg);
+  }
+  25% {
+    transform: translate(50%, -50%) rotate(18deg);
+  }
+  50% {
+    transform: translate(50%, -50%) rotate(15deg);
+  }
+  75% {
+    transform: translate(50%, -50%) rotate(12deg);
+  }
+}
+
+/* V + Lightning path animations */
+.v-left-arm {
+  animation: v-left-flash 3s ease-in-out infinite;
+}
+
+.v-right-arm {
+  animation: v-right-flash 3.5s ease-in-out infinite;
+}
+
+.lightning-bolt {
+  animation: lightning-bolt-flash 4s ease-in-out infinite;
+}
+
+@keyframes v-left-flash {
+  0%, 100% {
+    fill: rgba(40, 60, 255, 0.15);
+  }
+  50% {
+    fill: rgba(40, 60, 255, 0.25);
+  }
+}
+
+@keyframes v-right-flash {
+  0%, 100% {
+    fill: rgba(82, 99, 255, 0.12);
+  }
+  50% {
+    fill: rgba(82, 99, 255, 0.20);
+  }
+}
+
+@keyframes lightning-bolt-flash {
+  0%, 100% {
+    fill: rgba(128, 140, 255, 0.08);
+    stroke: rgba(40, 60, 255, 0.2);
+  }
+  50% {
+    fill: rgba(128, 140, 255, 0.15);
+    stroke: rgba(40, 60, 255, 0.3);
+  }
+}
+
+/* Hover effects for lightning */
+.hero-section:hover .lightning-main {
+  animation-duration: 2s, 4s;
+  filter: drop-shadow(0 0 20px rgba(40, 60, 255, 0.6));
+}
+
+.hero-section:hover .lightning-left {
+  animation-duration: 2.5s, 5s;
+  filter: drop-shadow(0 0 15px rgba(40, 60, 255, 0.5));
+}
+
+.hero-section:hover .lightning-right {
+  animation-duration: 3s, 6s;
+  filter: drop-shadow(0 0 12px rgba(40, 60, 255, 0.4));
+}
+
+/* Responsive V + Lightning sizes */
+@media (max-width: 768px) {
+  .lightning-svg {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .lightning-main {
+    top: 45%;
+  }
+  
+  .lightning-left {
+    top: 25%;
+    left: 15%;
+  }
+  
+  .lightning-right {
+    top: 75%;
+    right: 15%;
+  }
+}
+
+@media (max-width: 480px) {
+  .lightning-svg {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .lightning-main {
+    top: 40%;
+  }
+  
+  .lightning-left {
+    top: 20%;
+    left: 10%;
+  }
+  
+  .lightning-right {
+    top: 80%;
+    right: 10%;
+  }
+}
+
+/* Reduced motion support for V + Lightning */
+@media (prefers-reduced-motion: reduce) {
+  .lightning-main,
+  .lightning-left,
+  .lightning-right {
+    animation: none !important;
+    opacity: 0.3 !important;
+  }
+  
+  .v-left-arm,
+  .v-right-arm,
+  .lightning-bolt {
+    animation: none !important;
+  }
+}
+
+/* Animated text styles for HowItWorks section */
+.animated-text {
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform, opacity;
+}
+
+.animated-text.animate {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Staggered animation delays for animated text */
+.animated-text[data-delay="0"] { transition-delay: 0ms; }
+.animated-text[data-delay="500"] { transition-delay: 500ms; }
+.animated-text[data-delay="1000"] { transition-delay: 1000ms; }
+
+/* Reduced motion support for animated text */
+@media (prefers-reduced-motion: reduce) {
+  .animated-text {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  
+  .animated-text.animate {
+    transform: none !important;
+  }
+}
