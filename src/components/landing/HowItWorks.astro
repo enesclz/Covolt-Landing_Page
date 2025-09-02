@@ -1,156 +1,293 @@
 <section class="bg-white pt-20 text-base-900">
   <div class="max-w-7xl mx-auto px-8 md:px-12 lg:px-24">
     <div class="text-center mb-16">
-      <div class="mb-6">
-        <div class="flex justify-center items-center space-x-8">
-          <span class="step-text text-xl font-bold text-accent-600 tracking-wide relative overflow-hidden cursor-pointer" data-step="1">
-            <span class="step-content inline-block relative z-10 transition-all duration-1000 ease-out" style="opacity: 0; transform: translateY(50px) rotateX(90deg);">
-              <span class="text-shadow-lg">Bağla</span>
-            </span>
-          </span>
-          
-          <span class="step-text text-xl font-bold text-accent-600 tracking-wide relative overflow-hidden cursor-pointer" data-step="2">
-            <span class="step-content inline-block relative z-10 transition-all duration-1000 ease-out" style="opacity: 0; transform: translateY(50px) rotateX(90deg);">
-              <span class="text-shadow-lg">Takip Et</span>
-            </span>
-          </span>
-          
-          <span class="step-text text-xl font-bold text-accent-600 tracking-wide relative overflow-hidden cursor-pointer" data-step="3">
-            <span class="step-content inline-block relative z-10 transition-all duration-1000 ease-out" style="opacity: 0; transform: translateY(50px) rotateX(90deg);">
-              <span class="text-shadow-lg">Tasarruf Et</span>
-            </span>
-          </span>
-        </div>
-      </div>
-      <h2
-        class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-semibold text-accent-600 tracking-tight mb-6">
+      <h2 class="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-semibold text-accent-600 tracking-tight mb-6">
         Nasıl Çalışır?
       </h2>
-      <p class="text-xl/relaxed text-gray-700 font-medium max-w-3xl mx-auto">
-        Covolt'u kullanmaya başlamak için basit 3 adım.
-      </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
-      <div class="scroll-card group bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-[#191265] hover:border-[#191265] hover:bg-white/90 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-xl hover:shadow-gray-200/20 text-center" data-delay="0">
-        <div class="inline-flex items-center justify-center w-16 h-16 bg-accent-600/10 rounded-2xl mb-6 group-hover:bg-accent-600/15 transition-colors duration-300 border border-[#191265]">
-          <span class="text-2xl font-bold text-accent-600">1</span>
-        </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-4 tracking-tight">
-          Sayaçlarını Bağla
-        </h3>
-        <p class="text-gray-700 leading-relaxed text-base font-medium">
-          OSOS altyapını veya sayaçlarını Covolt'a tanımla. Tüm tesislerin tek ekranda görünür olsun.
-        </p>
+    <div class="howit-wrapper relative">
+      <div class="howit-sticky sticky top-24">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+      <div class="relative">
+        <ol class="space-y-8 md:space-y-10 lg:space-y-12">
+          <li class="howit-step flex items-center" data-step="1" data-title="Sayaçlarını Bağla" data-desc="Tüm tesislerini tek ekranda gör&#10;Sayaçların kimlik, konum ve teknik bilgilerini otomatik kaydet&#10;Hangi dağıtım şirketine bağlı olursan ol tek panelden yönet">
+            <div class="flex items-start gap-6 w-full">
+              <div class="relative">
+                <div class="howit-number flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#191265] bg-white text-accent-600 font-bold">
+                  <svg class="absolute -z-10 w-14 h-14" viewBox="0 0 48 48">
+                    <circle class="progress-bg" cx="24" cy="24" r="21" stroke="#E5E7EB" stroke-width="2" fill="none" />
+                    <circle class="progress-ring" cx="24" cy="24" r="21" stroke="#191265" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="132" stroke-dashoffset="132" />
+                  </svg>
+                  1
+                </div>
+              </div>
+              <div class="w-full">
+                <h3 class="text-2xl font-semibold text-gray-900">Sayaçlarını Bağla</h3>
+                <p class="mt-3 text-gray-700 text-base leading-relaxed">OSOS altyapını veya sayaçlarını Covolt'a tanımla. Tüm tesislerin tek ekranda görünür olsun.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="howit-step opacity-60 flex items-center" data-step="2" data-title="Veriyi Anlık Takip Et" data-desc="Fatura değerlerinin doğruluğunu kontrol et&#10;Tüketim trendlerini ve sapmaları gör&#10;Anormal artış veya riskli durumları erkenden fark et">
+            <div class="flex items-start gap-6 w-full">
+              <div class="relative">
+                <div class="howit-number flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#191265] bg-white text-accent-600 font-bold">
+                  <svg class="absolute -z-10 w-14 h-14" viewBox="0 0 48 48">
+                    <circle class="progress-bg" cx="24" cy="24" r="21" stroke="#E5E7EB" stroke-width="2" fill="none" />
+                    <circle class="progress-ring" cx="24" cy="24" r="21" stroke="#191265" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="132" stroke-dashoffset="132" />
+                  </svg>
+                  2
+                </div>
+              </div>
+              <div class="w-full">
+                <h3 class="text-2xl font-semibold text-gray-900">Veriyi Anlık Takip Et</h3>
+                <p class="mt-3 text-gray-700 text-base leading-relaxed">Tüketim verilerini gerçek zamanlı izle. Faturalarını doğrula, trendleri gör, riskleri önceden fark et.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="howit-step opacity-60 flex items-center" data-step="3" data-title="Analiz Et & Kuralları Çalıştır" data-desc="Gelecekteki tüketim senaryolarını gör&#10;Anormallikleri otomatik kurallarla yakala&#10;Kendi iş akışına uygun otomasyon senaryoları oluştur">
+            <div class="flex items-start gap-6 w-full">
+              <div class="relative">
+                <div class="howit-number flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#191265] bg-white text-accent-600 font-bold">
+                  <svg class="absolute -z-10 w-14 h-14" viewBox="0 0 48 48">
+                    <circle class="progress-bg" cx="24" cy="24" r="21" stroke="#E5E7EB" stroke-width="2" fill="none" />
+                    <circle class="progress-ring" cx="24" cy="24" r="21" stroke="#191265" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="132" stroke-dashoffset="132" />
+                  </svg>
+                  3
+                </div>
+              </div>
+              <div class="w-full">
+                <h3 class="text-2xl font-semibold text-gray-900">Analiz Et & Kuralları Çalıştır</h3>
+                <p class="mt-3 text-gray-700 text-base leading-relaxed">Tahmin, anomali ve maliyet analizlerini uygula. Otomatik kurallar ile olayları tetikle.</p>
+              </div>
+            </div>
+          </li>
+
+          <li class="howit-step opacity-60 flex items-center" data-step="4" data-title="Aksiyon Al & Tasarruf Sağla" data-desc="Gereksiz cezalardan kurtul&#10;Tasarrufu kalıcı hale getir&#10;İşletmene özel optimizasyon raporları al">
+            <div class="flex items-start gap-6 w-full">
+              <div class="relative">
+                <div class="howit-number flex-shrink-0 inline-flex items-center justify-center w-12 h-12 rounded-full border border-[#191265] bg-white text-accent-600 font-bold">
+                  <svg class="absolute -z-10 w-14 h-14" viewBox="0 0 48 48">
+                    <circle class="progress-bg" cx="24" cy="24" r="21" stroke="#E5E7EB" stroke-width="2" fill="none" />
+                    <circle class="progress-ring" cx="24" cy="24" r="21" stroke="#191265" stroke-width="2" fill="none" stroke-linecap="round" stroke-dasharray="132" stroke-dashoffset="132" />
+                  </svg>
+                  4
+                </div>
+              </div>
+              <div class="w-full">
+                <h3 class="text-2xl font-semibold text-gray-900">Aksiyon Al & Tasarruf Sağla</h3>
+                <p class="mt-3 text-gray-700 text-base leading-relaxed">Uyarı ve önerilere göre doğru tarifeyi seç, gereksiz maliyetleri önle ve tasarrufu kalıcı kıl.</p>
+              </div>
+            </div>
+          </li>
+        </ol>
       </div>
 
-      <div class="scroll-card group bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-[#191265] hover:border-[#191265] hover:bg-white/90 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-xl hover:shadow-gray-200/20 text-center" data-delay="200">
-        <div class="inline-flex items-center justify-center w-16 h-16 bg-accent-600/10 rounded-2xl mb-6 group-hover:bg-accent-600/15 transition-colors duration-300 border border-[#191265]">
-          <span class="text-2xl font-bold text-accent-600">2</span>
+      <div class="relative">
+        <div class="">
+          <div class="howit-card relative overflow-hidden rounded-3xl p-10 border border-[#191265] shadow-xl shadow-gray-200/30 transition-all duration-300">
+            <div class="absolute inset-0 bg-gradient-to-br from-white via-white/80 to-accent-600/10"></div>
+            <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-accent-600/20 blur-3xl"></div>
+            <div class="relative">
+              <div class="howit-card-badge inline-flex items-center justify-center w-16 h-16 bg-accent-600/10 rounded-full mb-6 border border-[#191265]">
+                <span id="howit-card-step" class="text-2xl font-bold text-accent-600">1</span>
+              </div>
+              <h3 id="howit-card-title" class="text-2xl font-semibold text-gray-900 mb-4 tracking-tight">Sayaçlarını Bağla</h3>
+              <ul id="howit-card-desc" class="text-gray-700 leading-relaxed text-base font-medium list-disc pl-5 text-left">
+                <li>Tüm tesislerini tek ekranda gör</li>
+                <li>Sayaçların kimlik, konum ve teknik bilgilerini otomatik kaydet</li>
+                <li>Hangi dağıtım şirketine bağlı olursan ol tek panelden yönet</li>
+              </ul>
+              <div id="howit-card-media" class="mt-8 aspect-video w-full rounded-2xl border border-[#191265] bg-white/60 flex items-center justify-center text-accent-600/70">Görsel/Video Alanı</div>
+            </div>
+          </div>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-4 tracking-tight">
-          Takip Et & Analiz Yap
-        </h3>
-        <p class="text-gray-700 leading-relaxed text-base font-medium">
-          Tüketim verilerini anlık izle. Faturalarını doğrula, tüketim trendlerini gör, ceza risklerini önceden fark et.
-        </p>
       </div>
-
-      <div class="scroll-card group bg-white/70 backdrop-blur-xl rounded-3xl p-8 border border-[#191265] hover:border-[#191265] hover:bg-white/90 transition-all duration-500 ease-out hover:scale-[1.02] hover:shadow-xl hover:shadow-gray-200/20 text-center md:col-span-2 lg:col-span-1" data-delay="400">
-        <div class="inline-flex items-center justify-center w-16 h-16 bg-accent-600/10 rounded-2xl mb-6 group-hover:bg-accent-600/15 transition-colors duration-300 border border-[#191265]">
-          <span class="text-2xl font-bold text-accent-600">3</span>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-4 tracking-tight">
-          Optimize Et & Tasarruf Sağla
-        </h3>
-        <p class="text-gray-700 leading-relaxed text-base font-medium">
-          Uyarılara göre aksiyon al, doğru tarifeyi seç, gereksiz maliyetleri önle. Enerjini daha verimli kullanarak tasarruf et.
-        </p>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  .howit-card-enter {
+    opacity: 0;
+    transform: translateY(16px) scale(0.98);
+  }
+  .howit-card-enter-active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  /* Her adım ekran yüksekliği kadar alan kaplasın ki scroll sırasında kartlar sırayla değişsin */
+  .number-spin-enter {
+    transform: rotateX(90deg);
+    transition: transform 120ms ease;
+  }
+  .number-spin-enter-active {
+    transform: rotateX(0deg);
+  }
+  .indicator-dot.is-active {
+    background: rgba(25,18,101,0.06);
+    box-shadow: 0 0 0 2px rgba(25,18,101,0.12) inset;
+  }
+  .progress-ring { transition: stroke-dashoffset 180ms ease; }
+  /* Bölüm pin efekti: toplam yükseklik 4 adım için uzun, içerik sticky */
+  .howit-wrapper {
+    height: 400vh;
+  }
+  .howit-sticky {
+    position: sticky;
+    top: 6rem;
+    height: calc(100vh - 6rem);
+    display: flex;
+    align-items: stretch;
+  }
+  /* Çok satırlı açıklamayı satır sonlarına göre kır */
+  /* Liste biçiminde gösterilecek; işaret boyutu büyütüldü */
+  #howit-card-desc { white-space: normal; }
+  #howit-card-desc { font-size: 1rem; }
+  #howit-card-desc { list-style-type: disc; }
+  #howit-card-desc { display: block; text-align: left; }
+  #howit-card-desc li { margin-top: 0.5rem; }
+  /* Varsayılan marker görünümü */
+  #howit-card-desc li::marker { font-size: 1em; color: currentColor; }
+
+  /* Sol sütundaki numara ve başlıklar için #191265 efektleri */
+  .howit-number {
+    color: #191265;
+    box-shadow: 0 6px 18px rgba(25,18,101,0.12);
+    background: radial-gradient(120% 120% at 30% 20%, rgba(25,18,101,0.06), rgba(25,18,101,0) 60%), #ffffff;
+  }
+  .howit-step h3 {
+    color: #191265;
+    text-shadow: 0 1px 0 rgba(25,18,101,0.06);
+  }
+
+  /* Sağdaki kart için uyumlu renk ve efektler */
+  .howit-card-badge {
+    color: #191265;
+    box-shadow: 0 8px 22px rgba(25,18,101,0.12);
+    background: radial-gradient(120% 120% at 30% 20%, rgba(25,18,101,0.06), rgba(25,18,101,0) 60%), #ffffff;
+  }
+  #howit-card-step {
+    color: #191265;
+  }
+  #howit-card-title {
+    color: #191265;
+    text-shadow: 0 1px 0 rgba(25,18,101,0.06);
   }
 </style>
 
 <script>
-  // Epic step text animation with 3D effects
-  function animateStepText() {
-    const stepTexts = document.querySelectorAll('.step-text');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const stepNumber = parseInt(entry.target.getAttribute('data-step'));
-          const stepContent = entry.target.querySelector('.step-content');
-          
-          // Calculate delay based on step number
-          const delay = (stepNumber - 1) * 400;
-          
-          setTimeout(() => {
-            // Epic 3D entrance animation
-            stepContent.style.transform = 'translateY(0) rotateX(0deg)';
-            stepContent.style.opacity = '1';
-            
-            // Epic hover effects
-            entry.target.addEventListener('mouseenter', () => {
-              stepContent.style.transform = 'translateY(-5px) rotateX(-5deg) scale(1.05)';
-              stepContent.style.textShadow = '0 8px 16px rgba(59, 130, 246, 0.4)';
-            });
-            
-            entry.target.addEventListener('mouseleave', () => {
-              stepContent.style.transform = 'translateY(0) rotateX(0deg) scale(1)';
-              stepContent.style.textShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
-            });
-            
-          }, delay);
+  function initHowItWorks() {
+    const steps = Array.from(document.querySelectorAll('.howit-step'));
+    const card = document.querySelector('.howit-card');
+    const stepEl = document.getElementById('howit-card-step');
+    const titleEl = document.getElementById('howit-card-title');
+    const descEl = document.getElementById('howit-card-desc');
+    const progress = null;
+    const indicatorDots = Array.from(document.querySelectorAll('.indicator-dot'));
+    const rings = Array.from(document.querySelectorAll('.progress-ring'));
+
+    if (!steps.length || !card || !stepEl || !titleEl || !descEl) return;
+
+    // Pinli bölümde scroll ilerleyişini yüzdelik olarak kullanıp aktif adımı hesapla
+    const wrapper = document.querySelector('.howit-wrapper');
+    let lastActiveIndex = -1;
+    const pickStepByProgress = (direction = 'down') => {
+      const rect = wrapper.getBoundingClientRect();
+      const total = rect.height - window.innerHeight; // pinli alanda scroll edilebilir mesafe
+      const progressed = Math.min(Math.max(-rect.top, 0), total);
+      // Geçişi biraz daha kısa mesafede tetiklemek için hız çarpanı
+      const SPEED = 1.75;
+      const ratio = total > 0 ? Math.min(1, (progressed / total) * SPEED) : 0;
+      let index = Math.min(steps.length - 1, Math.max(0, Math.round(ratio * (steps.length - 1))));
+      // Yukarı çıkarken ara adımları göstermeden ilk adıma atla
+      if (direction === 'up') index = 0;
+      if (index !== lastActiveIndex) {
+        lastActiveIndex = index;
+        const el = steps[index];
+        // Yukarı çıkarken animasyonu kapat
+        setCard(el, direction !== 'up');
+        steps.forEach((s, idx) => s.classList.toggle('opacity-60', idx !== index));
+        if (indicatorDots.length) {
+          indicatorDots.forEach((d) => d.classList.toggle('is-active', parseInt(d.getAttribute('data-step')) - 1 === index));
         }
-      });
-    }, {
-      threshold: 0.2,
-      rootMargin: '0px 0px -50px 0px'
-    });
-    
-    stepTexts.forEach((text) => {
-      observer.observe(text);
-    });
-  }
-  
-  // Scroll card animation
-  function animateScrollCards() {
-    const scrollCards = document.querySelectorAll('.scroll-card');
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const delay = parseInt(entry.target.getAttribute('data-delay')) || 0;
-          
-          setTimeout(() => {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }, delay);
+        if (rings.length) {
+          rings.forEach((r, i) => {
+            const length = 132; // stroke-dasharray
+            r.style.strokeDashoffset = i === index ? '0' : String(length);
+          });
         }
+      }
+    };
+
+    const setCard = (el, animate = true) => {
+      const num = el.getAttribute('data-step');
+      const title = el.getAttribute('data-title');
+      const desc = el.getAttribute('data-desc');
+
+      if (!animate) {
+        // Animasyonsuz geçiş
+        stepEl.textContent = num;
+        titleEl.textContent = title;
+        const lines = (desc || '')
+          .split(/\r?\n|&#10;|\u000A/g)
+          .map((s) => s.replace(/^\s*[.•\-]\s*/, '').trim())
+          .filter(Boolean);
+        descEl.innerHTML = lines.map((line) => `<li>${line}</li>`).join('');
+        return;
+      }
+
+      // enter animation
+      card.classList.remove('howit-card-enter-active');
+      card.classList.add('howit-card-enter');
+
+      requestAnimationFrame(() => {
+        // number spin animation
+        stepEl.classList.remove('number-spin-enter-active');
+        stepEl.classList.add('number-spin-enter');
+        stepEl.textContent = num;
+        titleEl.textContent = title;
+        // Açıklamayı satırlara böl ve liste öğeleri olarak yerleştir
+        const lines = (desc || '')
+          .split(/\r?\n|&#10;|\u000A/g)
+          .map((s) => s.replace(/^\s*[.•\-]\s*/, '').trim())
+          .filter(Boolean);
+        descEl.innerHTML = lines.map((line) => `<li>${line}</li>`).join('');
+
+        // allow style flush then animate
+        requestAnimationFrame(() => {
+          card.classList.remove('howit-card-enter');
+          card.classList.add('howit-card-enter-active');
+          stepEl.classList.remove('number-spin-enter');
+          stepEl.classList.add('number-spin-enter-active');
+        });
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    });
-    
-    scrollCards.forEach((card) => {
-      card.style.opacity = '0';
-      card.style.transform = 'translateY(30px)';
-      card.style.transition = 'all 0.6s ease-out';
-      observer.observe(card);
-    });
+    };
+
+    // Scroll ve resize'da sürekli güncelle
+    let ticking = false;
+    let lastScrollY = window.scrollY;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentY = window.scrollY;
+          const direction = currentY < lastScrollY ? 'up' : 'down';
+          lastScrollY = currentY;
+          pickStepByProgress(direction);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    // İlk yüklemede doğru adımı seç
+    pickStepByProgress('down');
   }
-  
-  // Initialize animations when DOM is loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    animateStepText();
-    animateScrollCards();
-  });
+
+  document.addEventListener('DOMContentLoaded', initHowItWorks);
 </script>
